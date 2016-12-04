@@ -1,18 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Tone from './Tone'
+import Circle from './Circle'
+
 
 class App extends Component {
+
+  state = {
+    tones: [
+      261.626,
+      329.628,
+      391.995,
+    ]
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div
+        className="App"
+      >
+        {
+          this.state.tones.map((tone, i) => {
+            return (
+              <div
+                key={i}
+              >
+                <Tone
+                  hz={tone}
+                />
+                <Circle
+                  hz={tone}
+                />
+              </div>
+            )
+          })
+        }
       </div>
     );
   }
