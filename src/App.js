@@ -4,23 +4,55 @@ import Tone from './Tone'
 import Circle from './Circle'
 
 
-class App extends Component {
+const invasion = [
+  45,
+  46,
+  47,
+  48,
+  49,
+  50,
+]
 
-  state = {
-    tones: [
-      261.626,
-      329.628,
-      391.995,
-    ]
-  }
+const cChord = [
+  261.63, // C
+  329.63, // E
+  392.00 // G
+]
+
+const major = (root) => ([
+  root,
+  root * 1.26,
+  root * 1.498
+])
+
+
+const tones = [35, 36, 45, 46]
+
+class App extends Component {
 
   render() {
     return (
       <div
-        className="App"
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
       >
+        <div
+          style={{
+            border: '3px solid lightblue',
+            borderRadius: '50%',
+            width: 424.264,
+            height: 424.264,
+            position: 'absolute',
+          }}
+        ></div>
         {
-          this.state.tones.map((tone, i) => {
+          tones.map((tone, i) => {
             return (
               <div
                 key={i}

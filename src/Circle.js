@@ -7,13 +7,13 @@ class Circle extends Component {
     super()
     window.setInterval(() => {
       this.setState({
-        pct: this.state.pct + props.hz / 100
+        rotation: this.state.rotation + props.hz / 200
       })
-    }, 50)
+    }, 25)
   }
 
   state = {
-    pct: 0
+    rotation: 0
   }
 
   render() {
@@ -21,12 +21,26 @@ class Circle extends Component {
     return (
       <div
         style={{
-          width: 100,
-          height: 100,
-          border: '3px solid blue',
-          transform: `rotate(${this.state.pct}deg)`,
+          position: 'relative',
+          width: 300,
+          height: 300,
+          border: '1px solid lightgray',
+          transform: `rotate(${this.state.rotation}deg)`,
         }}
-      ></div>
+      >
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: 25,
+            height: 25,
+            borderRadius: '50%',
+            transform: 'translate(-50%, -50%)',
+            backgroundColor: 'orange',
+          }}
+        ></div>
+      </div>
     );
   }
 }
