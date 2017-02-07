@@ -4,29 +4,7 @@ import Tone from './Tone'
 import Circle from './Circle'
 
 
-const invasion = [
-  45,
-  46,
-  47,
-  48,
-  49,
-  50,
-]
-
-const cChord = [
-  261.63, // C
-  329.63, // E
-  392.00 // G
-]
-
-const major = (root) => ([
-  root,
-  root * 1.26,
-  root * 1.498
-])
-
-
-const tones = [35, 36, 45, 46]
+const tones = [140, 220]
 
 class App extends Component {
 
@@ -44,29 +22,63 @@ class App extends Component {
       >
         <div
           style={{
-            border: '3px solid lightblue',
-            borderRadius: '50%',
+            position: 'absolute',
             width: 424.264,
             height: 424.264,
-            position: 'absolute',
+            outline: '1px solid lightblue',
+            border: '3px solid lightblue',
+            backgroundColor: 'rgba(173, 216, 230, 0.2)',
+            borderRadius: '50%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
-        ></div>
-        {
-          tones.map((tone, i) => {
-            return (
-              <div
-                key={i}
-              >
-                <Tone
-                  hz={tone}
-                />
-                <Circle
-                  hz={tone}
-                />
-              </div>
-            )
-          })
-        }
+        >
+          <div
+            style={{
+              width: '100vw',
+              height: 1,
+              position: 'absolute',
+              backgroundColor: 'black',
+              top: '75%',
+            }}
+          ></div>
+          <div
+            style={{
+              height: '100vh',
+              width: 1,
+              position: 'absolute',
+              backgroundColor: 'black',
+              left: '50%',
+            }}
+          ></div>
+          <div
+            style={{
+              border: '2px dashed lightgray',
+              position: 'absolute',
+              backgroundColor: 'white',
+              width: 300,
+              height: 300,
+            }}
+          >
+            {
+              tones.map((tone, i) => {
+                return (
+                  <div
+                    key={i}
+                  >
+                    <Tone
+                      hz={tone}
+                    />
+                    <Circle
+                      hz={tone}
+                    />
+                  </div>
+                )
+              })
+            }
+          </div>
+        </div>
       </div>
     );
   }
