@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.8.0"
   },
   "dependencies": {
@@ -16,5 +17,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "npm run build&&gh-pages -d build"
-  }
+  },
+  "homepage": "https://justinpille.github.io/harmonograph"
 }
